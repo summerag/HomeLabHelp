@@ -1,0 +1,47 @@
+<html>
+    <head>
+
+      {% if title %}
+      <title>{{ title }} - Homelab Help</title>
+      {% else %}
+      <title>Welcome to Homelab Help</title>
+      {% endif %}
+
+      <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
+
+      <meta charset="utf-8">
+
+      <meta name=viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="nav-logo">
+          <a href="{{url_for('index')}}">
+            <img src="../static/logowithtitle.png" href="{{url_for('index')}}">
+          </a>
+        </div>
+        <div class="nav-links">
+          <input type="checkbox" id="toggle" class="checkbox1">
+          <label id="hamburger" for="toggle">
+              <div class="hamburger hamburger1">
+                <span class="bar bar1"></span>
+                <span class="bar bar2"></span>
+                <span class="bar bar3"></span>
+                <span class="bar bar4"></span>
+              </div>
+          </label>
+          <div class="menu">
+            <a href="{{url_for('index')}}">Home</a>
+            <a href="#">Guides</a>
+            <a href="#">Blog</a>
+            <a href="#">Applications</a>
+            <a href="#">About Me</a>
+            <a href="{{url_for('login')}}">Log In</a>
+          </div>
+        </div>
+      </nav>
+      {% block content %}{% endblock %}
+      <script src="../static/app.js"></script>
+    </body>
+</html>
